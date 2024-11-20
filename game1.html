@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game One</title>
+    <link rel="stylesheet" href="game1.css">
+</head>
+<body>
+    <div class="back-button-container">
+        <button class="back-button" onclick="goBack()">Back to Home</button>
+        <button id="howToPlayBtn" class="how-to-play-btn">How to Play</button>
+
+    </div>
+    <div class="game-container">
+        <h1>Business Civil Law Case Challenge</h1>
+  <img src="https://wallpaperaccess.com/full/4144230.jpg" alt="Law Court Scene" class="case-image">
+        <div class="score-lives">
+            <div>Score: <span id="score">0</span></div>
+            <div>Lives: <span id="lives">3</span></div>
+        </div>
+        <div class="case-text" id="case-text"></div>
+        <div class="options" id="options"></div>
+        <div id="feedback" class="feedback hidden"></div>
+        <button id="restart" class="restart">Restart Game</button>
+    </div>
+
+    <div id="rulesModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>How to Play - Business Civil Law Challenge</h2>
+            <div class="rules-content">
+                <h3>Game Objective</h3>
+                <p>Win the case by reaching 100 points while analyzing real-world business law scenarios!</p>
+                
+                <h3>Game Rules</h3>
+                <ul>
+                    <li>Read each legal case carefully</li>
+                    <li>Select the correct legal concept that applies to the case</li>
+                    <li>Correct answers earn you 10 points</li>
+                    <li>You have 3 lives (attempts) to reach 100 points</li>
+                    <li>Incorrect answers cost you 1 life</li>
+                    <li>Game ends when you either:
+                        <ul>
+                            <li>Win by reaching 100 points</li>
+                            <li>Lose by running out of lives</li>
+                        </ul>
+                    </li>
+                </ul>
+                
+                <h3>Tips</h3>
+                <ul>
+                    <li>Pay attention to key details in each case</li>
+                    <li>Consider all possible legal concepts before making your choice</li>
+                    <li>Use your lives wisely - you only get three!</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <script src="game1.js"></script>
+</body>
+</html>

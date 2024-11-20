@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Five</title>
+    <link rel="stylesheet" href="game5.css">
+</head>
+<body>
+    
+    <div class="back-button-container">
+        <button class="back-button" onclick="goBack()">Back to Home</button>
+    </div>
+    <div class="game-container">
+        <button class="how-to-play-btn button">How to Play</button>
+        <div class="modal" id="howToPlayModal">
+            <div class="modal-content">
+                <span class="close-btn">&times;</span>
+                <h2>How to Play Corporate Structure Builder</h2>
+                
+                <div class="rules-section">
+                    <h3>🎯 Objective</h3>
+                    <p>Build the most legally sound and efficient business structure by strategically combining different business components while adapting to market changes and regulatory challenges.</p>
+        
+                    <h3>🎮 Gameplay</h3>
+                    <ul>
+                        <li><strong>Building Your Structure:</strong> Click on building blocks from the right panel to add them to your corporate structure.</li>
+                        <li><strong>Components Available:</strong>
+                            <ul>
+                                <li>Business Entities (LLC, Corporation)</li>
+                                <li>Tax Structures</li>
+                                <li>Management Frameworks</li>
+                                <li>Liability Protection</li>
+                                <li>Shareholder Rights</li>
+                            </ul>
+                        </li>
+                        <li><strong>Event Cards:</strong> Click "Draw Event Card" to face random market conditions, regulatory changes, or risk scenarios that will test your structure.</li>
+                    </ul>
+        
+                    <h3>📊 Scoring</h3>
+                    <ul>
+                        <li><strong>Legal Score:</strong> Measures how well your structure complies with legal requirements and protects the business.</li>
+                        <li><strong>Efficiency Score:</strong> Indicates how well your structure operates and adapts to business challenges.</li>
+                    </ul>
+        
+                    <h3>🏆 Winning</h3>
+                    <p>Complete your structure by adding all necessary components while maintaining high legal and efficiency scores. The game ends when your progress bar reaches 100%.</p>
+        
+                    <h3>💡 Tips</h3>
+                    <ul>
+                        <li>Balance between legal protection and operational efficiency</li>
+                        <li>Respond strategically to event cards</li>
+                        <li>Consider the impact of each component on both scores</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="completion-modal" id="completionModal">
+            <div class="modal-content">
+                <h2>🎉 Congratulations!</h2>
+                <p>You've completed your corporate structure!</p>
+                <div class="final-scores">
+                    <div class="final-score">
+                        <h3>Final Legal Score</h3>
+                        <p id="finalLegalScore">0</p>
+                    </div>
+                    <div class="final-score">
+                        <h3>Final Efficiency Score</h3>
+                        <p id="finalEfficiencyScore">0</p>
+                    </div>
+                </div>
+                <button class="button restart-btn" id="restartButton">Start New Game</button>
+            </div>
+        </div>
+        
+        <div class="header">
+            <h1>Corporate Structure Builder</h1>
+            <p>Build the most efficient and legally sound business structure</p>
+        </div>
+
+        <div class="game-grid">
+            <div class="building-area" id="buildingArea">
+                <h2>Your Corporate Structure</h2>
+                <div class="progress-container">
+                    <div class="progress-bar" id="progressBar"></div>
+                </div>
+                <div id="structureElements"></div>
+            </div>
+
+            <div class="components-panel">
+                <h2>Building Blocks</h2>
+                <div id="availableComponents"></div>
+                <button class="button" id="drawEventCard">Draw Event Card</button>
+            </div>
+        </div>
+
+        <div class="event-card" id="eventCard"></div>
+
+        <div class="stats-panel">
+            <div class="stat-item">
+                <h3>Legal Score</h3>
+                <p id="legalScore">0</p>
+            </div>
+            <div class="stat-item">
+                <h3>Efficiency Score</h3>
+                <p id="efficiencyScore">0</p>
+            </div>
+        </div>
+    </div>
+    <script src="game5.js"></script>
+
+</body>
+</html>

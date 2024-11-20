@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Two</title>
+    <link rel="stylesheet" href="dist/output.css">
+
+</head>
+<body>
+    
+    <div class="back-button-container">
+        <button class="back-button" onclick="goBack()">Back to Home</button>
+    </div>
+
+    <div class="buttons-container">
+        <div class="buttons-wrapper">
+            <button id="howToPlayBtn" class="how-to-play-btn">How to Play</button>
+            <button id="startGameBtn" class="start-game-btn">Start Game</button>
+        </div>
+    </div>
+    <body class="bg-gray-100 min-h-screen">
+        <!-- Game Header -->
+        <header class="bg-white shadow-md">
+            <div class="container mx-auto px-4 py-6">
+                <h1 class="text-3xl font-bold text-gray-800">Contract Negotiation Simulator</h1>
+                <div class="flex items-center mt-4">
+                    <div class="mr-8">
+                        <span class="text-gray-600">Score:</span>
+                        <span id="score" class="font-bold text-blue-600">0</span>
+                    </div>
+                    <div class="mr-8">
+                        <span class="text-gray-600">Round:</span>
+                        <span id="round" class="font-bold text-blue-600">1/4</span>
+                    </div>
+                    <div class="flex-1">
+                        <div class="bg-gray-200 rounded-full h-2">
+                            <div id="timeBar" class="progress-bar bg-blue-500 rounded-full h-2 w-full"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+    
+        <!-- Main Game Area -->
+        <main class="container mx-auto px-4 py-8">
+            <!-- Company Profiles -->
+            <div class="grid md:grid-cols-2 gap-8 mb-8">
+                <!-- Your Company -->
+                <div class="card bg-white rounded-lg shadow-lg p-6">
+                    <h2 class="text-xl font-bold text-gray-800 mb-4">Your Company</h2>
+                    <div id="playerProfile" class="space-y-4">
+                        <p class="text-gray-600">Budget: <span class="font-bold text-green-600">$1,000,000</span></p>
+                        <div class="space-y-2">
+                            <h3 class="font-semibold">Objectives:</h3>
+                            <ul class="list-disc list-inside text-gray-600">
+                                <li>Secure favorable payment terms</li>
+                                <li>Minimize liability exposure</li>
+                                <li>Ensure quick delivery timeline</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Opponent Company -->
+                <div class="card bg-white rounded-lg shadow-lg p-6">
+                    <h2 class="text-xl font-bold text-gray-800 mb-4">Opponent Company</h2>
+                    <div id="opponentProfile" class="space-y-4">
+                        <p class="text-gray-600">Industry: <span class="font-bold">Technology</span></p>
+                        <div class="space-y-2">
+                            <h3 class="font-semibold">Known Priorities:</h3>
+                            <ul class="list-disc list-inside text-gray-600">
+                                <li>High upfront payment</li>
+                                <li>Long-term commitment</li>
+                                <li>Intellectual property rights</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Negotiation Area -->
+            <div class="bg-white rounded-lg shadow-lg p-6 mb-8">
+                <h2 class="text-xl font-bold text-gray-800 mb-4">Contract Terms</h2>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <!-- Contract Terms -->
+                    <div class="space-y-4">
+                        <div class="space-y-2">
+                            <label class="block text-gray-700">Payment Terms</label>
+                            <select id="paymentTerms" class="w-full p-2 border rounded-md">
+                                <option value="upfront">100% Upfront</option>
+                                <option value="split">50/50 Split</option>
+                                <option value="milestone">Milestone-based</option>
+                            </select>
+                        </div>
+                        <div class="space-y-2">
+                            <label class="block text-gray-700">Contract Duration</label>
+                            <select id="duration" class="w-full p-2 border rounded-md">
+                                <option value="1">1 Year</option>
+                                <option value="2">2 Years</option>
+                                <option value="5">5 Years</option>
+                            </select>
+                        </div>
+                        <div class="space-y-2">
+                            <label class="block text-gray-700">Liability Cap</label>
+                            <select id="liability" class="w-full p-2 border rounded-md">
+                                <option value="low">$100,000</option>
+                                <option value="medium">$500,000</option>
+                                <option value="high">$1,000,000</option>
+                            </select>
+                        </div>
+                    </div>
+    
+                    <!-- Negotiation Actions -->
+                    <div class="space-y-4">
+                        <button id="propose" class="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 transition duration-200">
+                            Propose Terms
+                        </button>
+                        <button id="counter" class="w-full bg-green-600 text-white py-2 px-4 rounded-md hover:bg-green-700 transition duration-200">
+                            Make Counter-Offer
+                        </button>
+                        <button id="analyze" class="w-full bg-purple-600 text-white py-2 px-4 rounded-md hover:bg-purple-700 transition duration-200">
+                            Analyze Contract
+                        </button>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Feedback Area -->
+            <div id="feedback" class="bg-white rounded-lg shadow-lg p-6">
+                <h2 class="text-xl font-bold text-gray-800 mb-4">Negotiation History</h2>
+                <div id="negotiationLog" class="space-y-2 text-gray-600">
+                    <!-- Negotiation messages will be added here -->
+                </div>
+            </div>
+        </main>
+    
+        <!-- Modal -->
+        <div id="resultModal" class="modal fixed inset-0 flex items-center justify-center">
+            <div class="bg-white rounded-lg shadow-xl p-8 max-w-md w-full mx-4">
+                <h2 class="text-2xl font-bold text-gray-800 mb-4">Round Complete!</h2>
+                <div id="modalContent" class="space-y-4">
+                    <!-- Results will be added here -->
+                </div>
+                <button id="nextRound" class="mt-6 w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 transition duration-200">
+                    Next Round
+                </button>
+            </div>
+        </div>
+
+
+        <div id="howToPlayModal" class="how-to-play-modal">
+            <div class="how-to-play-content">
+                <span class="close-btn">&times;</span>
+                <h2 class="text-2xl font-bold text-gray-800 mb-4">Contract Negotiation Simulator - Game Rules</h2>
+                
+                <div class="rules-content">
+                    <section class="mb-6">
+                        <h3 class="text-xl font-bold text-gray-700 mb-2">Game Overview</h3>
+                        <p class="text-gray-600">You are a business negotiator tasked with securing favorable contract terms while maintaining positive business relationships. Navigate through complex negotiations by proposing terms, analyzing offers, and making strategic counter-proposals.</p>
+                    </section>
+        
+                    <section class="mb-6">
+                        <h3 class="text-xl font-bold text-gray-700 mb-2">How to Play</h3>
+                        <ul class="list-disc list-inside text-gray-600 space-y-2">
+                            <li>Complete 4 rounds of negotiations</li>
+                            <li>Watch the timer bar at the top</li>
+                            <li>Use the dropdown menus to set contract terms</li>
+                            <li>Make decisions using three main buttons:
+                                <ul class="list-circle list-inside ml-6 mt-2">
+                                    <li>"Propose Terms" - Submit your contract terms</li>
+                                    <li>"Make Counter-Offer" - Respond to opponent's proposals</li>
+                                    <li>"Analyze Contract" - Check current terms for risks</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </section>
+        
+                    <section class="mb-6">
+                        <h3 class="text-xl font-bold text-gray-700 mb-2">Scoring System</h3>
+                        <ul class="list-disc list-inside text-gray-600 space-y-2">
+                            <li>+30 points: Milestone-based payment terms</li>
+                            <li>+20 points: Fair 50/50 payment splits</li>
+                            <li>+15-25 points: Successful counter-offers</li>
+                            <li>+10 points: Thorough contract analysis</li>
+                            <li>-10 points: High-risk terms</li>
+                        </ul>
+                    </section>
+        
+                    <section class="mb-6">
+                        <h3 class="text-xl font-bold text-gray-700 mb-2">Tips for Success</h3>
+                        <ul class="list-disc list-inside text-gray-600 space-y-2">
+                            <li>Review both company profiles carefully</li>
+                            <li>Balance quick decisions with careful analysis</li>
+                            <li>Watch the timer - don't let it run out</li>
+                            <li>Aim for terms that benefit both parties</li>
+                        </ul>
+                    </section>
+                </div>
+            </div>
+        </div>
+<script src="game2.js"></script>
+</body>
+</html>

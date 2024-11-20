@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Six</title>
+    <link rel="stylesheet" href="game6.css">
+</head>
+<body>
+    
+    <div class="back-button-container">
+        <button class="back-button" onclick="goBack()">Back to Home</button>
+        <button id="howToPlayBtn" class="how-to-play-btn">How to Play</button>
+    </div>
+
+
+    <div id="rulesModal" class="rules-modal">
+        <div class="rules-content">
+            <span class="close-btn">&times;</span>
+            <h2>How to Play Legal Terms Match</h2>
+            
+            <div class="rules-section">
+                <h3>Game Objective</h3>
+                <p>Match legal terms with their correct definitions to test your knowledge of business and civil law concepts.</p>
+            </div>
+    
+            <div class="rules-section">
+                <h3>Game Rules</h3>
+                <ol>
+                    <li>Click any card to flip it and reveal either a legal term or definition.</li>
+                    <li>Click a second card to find its matching pair.</li>
+                    <li>If the term matches its definition, both cards stay face up.</li>
+                    <li>If they don't match, both cards will flip face down.</li>
+                    <li>Remember the locations of cards to make matches more quickly.</li>
+                </ol>
+            </div>
+    
+            <div class="rules-section">
+                <h3>Winning the Game</h3>
+                <p>Match all pairs of terms and definitions to win! Try to complete the game with fewer attempts and in less time.</p>
+            </div>
+            
+            <div class="rules-section">
+                <h3>Tips</h3>
+                <ul>
+                    <li>Pay attention to the cards you've already flipped.</li>
+                    <li>Take your time to read and understand each definition.</li>
+                    <li>Try to remember the location of similar terms.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="header">
+        <h1>Legal Terms Match</h1>
+        <p>Match the legal terms with their correct definitions</p>
+    </div>
+
+    <div class="game-stats">
+        <div class="stat-box">Matches: <span id="matches">0</span></div>
+        <div class="stat-box">Attempts: <span id="attempts">0</span></div>
+        <div class="stat-box">Time: <span id="timer">0:00</span></div>
+    </div>
+
+    <div class="game-container" id="gameBoard"></div>
+
+    <div class="modal" id="gameEndModal">
+        <div class="modal-content">
+            <h2>Congratulations! 🎉</h2>
+            <p>You've mastered the legal terms!</p>
+            <p>Time: <span id="finalTime">0:00</span></p>
+            <p>Attempts: <span id="finalAttempts">0</span></p>
+            <button onclick="restartGame()">Play Again</button>
+        </div>
+    </div>
+
+    
+
+    
+    <script src="game6.js"></script>
+</body>
+</html>

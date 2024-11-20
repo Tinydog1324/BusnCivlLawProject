@@ -1,0 +1,175 @@
+body {
+    font-family: Arial, sans-serif;
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f5f5f5;
+}
+
+.back-button-container {
+    margin: 10px;
+}
+
+.back-button {
+    background-color: #007BFF; /* Button color */
+    color: white;             /* Text color */
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.back-button:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+}
+
+
+.case-image {
+width: 100%;
+height: 200px;
+object-fit: cover;
+border-radius: 8px;
+margin: 20px 0;
+}
+.game-container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+.case-text {
+    background-color: #f8f9fa;
+    padding: 15px;
+    border-left: 4px solid #007bff;
+    margin-bottom: 20px;
+}
+.options {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-bottom: 20px;
+}
+.option {
+    padding: 10px;
+    background-color: #e9ecef;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+.option:hover {
+    background-color: #dee2e6;
+}
+.score-lives {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    font-size: 18px;
+}
+.feedback {
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 4px;
+}
+.correct {
+    background-color: #d4edda;
+    color: #155724;
+}
+.incorrect {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+.restart {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    display: none;
+}
+.restart:hover {
+    background-color: #0056b3;
+}
+.hidden {
+    display: none;
+}
+
+
+
+
+
+.how-to-play-btn {
+    background-color: #28a745;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+.how-to-play-btn:hover {
+    background-color: #218838;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.6);
+    z-index: 1000;
+}
+
+.modal-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: 5% auto;
+    padding: 20px;
+    width: 80%;
+    max-width: 600px;
+    border-radius: 8px;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+.close {
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #666;
+}
+
+.close:hover {
+    color: #000;
+}
+
+.rules-content {
+    margin-top: 20px;
+}
+
+.rules-content h3 {
+    color: #007bff;
+    margin-top: 20px;
+}
+
+.rules-content ul {
+    padding-left: 20px;
+    margin: 10px 0;
+}
+
+.rules-content li {
+    margin: 5px 0;
+}
+
+.rules-content ul ul {
+    margin: 5px 0;
+}
